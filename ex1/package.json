@@ -1,0 +1,16 @@
+{
+  "name": "ex1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cost_function.js",
+  "dependencies": {
+    "line-by-line": "^0.1.5",
+    "linear-algebra": "^3.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
