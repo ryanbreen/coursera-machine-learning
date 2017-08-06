@@ -44,7 +44,7 @@ fprintf('First 10 examples from the dataset: \n');
 fprintf(' x = [%.0f %.0f], y = %.0f \n', [X(1:10,:) y(1:10,:)]');
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
+%pause;
 
 % Scale features and set them to zero mean
 fprintf('Normalizing Features ...\n');
@@ -113,7 +113,7 @@ fprintf(['Predicted price of a 1650 sq-ft, 3 br house ' ...
          '(using gradient descent):\n $%f\n'], price);
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
+%pause;
 
 %% ================ Part 3: Normal Equations ================
 
