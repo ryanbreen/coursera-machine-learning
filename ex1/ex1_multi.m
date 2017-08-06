@@ -98,17 +98,17 @@ plot(1:numel(J_history), J_history, '-r', 'LineWidth', 2);
 alpha = 0.03;
 theta = zeros(3, 1);
 [~, J_history] = gradientDescentMulti(X, y, theta, alpha, num_iters);
-plot(1:numel(J_history), J_history, '-b', 'LineWidth', 2);alpha = 0.03;
+plot(1:numel(J_history), J_history, '-b', 'LineWidth', 2);
 
 alpha = 0.01;
 theta = zeros(3, 1);
 [~, J_history] = gradientDescentMulti(X, y, theta, alpha, num_iters);
-plot(1:numel(J_history), J_history, '-g', 'LineWidth', 2);alpha = 0.03;
+plot(1:numel(J_history), J_history, '-g', 'LineWidth', 2);
 
 alpha = 0.003;
 theta = zeros(3, 1);
 [~, J_history] = gradientDescentMulti(X, y, theta, alpha, num_iters);
-plot(1:numel(J_history), J_history, '-c', 'LineWidth', 2);alpha = 0.03;
+plot(1:numel(J_history), J_history, '-c', 'LineWidth', 2);
 
 
 hold off;
@@ -126,8 +126,18 @@ fprintf('\n');
 % ====================== YOUR CODE HERE ======================
 % Recall that the first column of X is all-ones. Thus, it does
 % not need to be normalized.
-price = 0; % You should change this
 
+%n = length(theta);
+%for j = 2:n
+%   X(j) = (X(j) .* sigma(j)) + mu(j);
+%end
+
+new_X = [1650 3];
+new_X = new_X - mu;
+new_X = new_X ./ sigma;
+new_X = [1 new_X];
+
+price = sum((theta.' .* new_X), 2);
 
 % ============================================================
 
@@ -171,7 +181,7 @@ fprintf('\n');
 
 % Estimate the price of a 1650 sq-ft, 3 br house
 % ====================== YOUR CODE HERE ======================
-price = 0; % You should change this
+price = sum((theta.' .* [1 1650 3]), 2);
 
 
 % ============================================================
