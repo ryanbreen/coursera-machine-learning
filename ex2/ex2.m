@@ -83,9 +83,6 @@ fprintf('Gradient at test theta: \n');
 fprintf(' %f \n', grad);
 fprintf('Expected gradients (approx):\n 0.043\n 2.566\n 2.647\n');
 
-return;
-
-
 %% ============= Part 3: Optimizing using fminunc  =============
 %  In this exercise, you will use a built-in function (fminunc) to find the
 %  optimal parameters theta.
@@ -110,17 +107,15 @@ fprintf(' -25.161\n 0.206\n 0.201\n');
 % plotDecisionBoundary(theta, X, y);
 
 % Put some labels 
-hold on;
+%hold on;
 % Labels and Legend
-xlabel('Exam 1 score')
-ylabel('Exam 2 score')
+%xlabel('Exam 1 score')
+%ylabel('Exam 2 score')
 
 % Specified in plot order
-legend('Admitted', 'Not admitted')
-hold off;
+%legend('Admitted', 'Not admitted')
+%hold off;
 
-fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
 
 %% ============== Part 4: Predict and Accuracies ==============
 %  After learning the parameters, you'll like to use it to predict the outcomes
