@@ -24,10 +24,7 @@ h_of_theta = sigmoid(sum(theta.' .* X, 2));
 deltas = -(y .* log(h_of_theta)) - ((1 - y) .* (log(1 - h_of_theta)));
 
 J = (1 / (m)) * sum(deltas);
-
-for i = 1:size(theta)
-    grad(i) = (1/m) * sum((h_of_theta - y) .* X(:, i));
-end
+grad = (1/m) .* sum((h_of_theta - y) .* X);
 
 % =============================================================
 
