@@ -7,9 +7,7 @@ function [J, grad] = costFunctionReg(theta, X, y, lambda)
 % Initialize some useful values
 m = length(y); % number of training examples
 
-% You need to return the following variables correctly 
-J = 0;
-grad = zeros(size(theta));
+% You need to return the following variables correctly
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta.
@@ -27,9 +25,8 @@ regularized_theta = regularized_theta .* regularized_theta;
 regular_term = (lambda / (2 * m)) * sum(regularized_theta);
 
 J = ((1 / (m)) * sum(deltas)) + regular_term;
-
-grad = (1/m) .* sum((h_of_theta - y) .* X);% + (lambda / m) .* theta;
-%grad(1) = ((1/m) * sum((h_of_theta(1) - y(1)) * X(1)));
+grad = (1/m) .* sum((h_of_theta - y) .* X) + (lambda / m) .* theta.';
+grad(1) = (1/m) * sum((h_of_theta(:, 1) - y(:, 1)) .* X(:, 1));
 
 % =============================================================
 
