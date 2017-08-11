@@ -15,8 +15,10 @@ figure; hold on;
 positive = find(y == 1);
 negative = find(y == 0);
 
-scatter(X(positive, 1), X(positive, 2), 'k+');
-scatter(X(negative, 1), X(negative, 2), 'ko');
+s1 = scatter(X(positive, 1), X(positive, 2), 'k+');
+s1.MarkerEdgeColor = 'b';
+s2 = scatter(X(negative, 1), X(negative, 2), 'ko');
+s2.MarkerEdgeColor = 'r';
 
 % =========================================================================
 
