@@ -51,8 +51,6 @@ X = [ones(m, 1) X];
 
     for k = 1:num_labels
 
-        fprintf('Calculating label %d\n', k);
-
         % Set Initial theta
         initial_theta = zeros(n + 1, 1);
 
