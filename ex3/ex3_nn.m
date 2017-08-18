@@ -40,10 +40,7 @@ m = size(X, 1);
 sel = randperm(size(X, 1));
 sel = sel(1:100);
 
-displayData(X(sel, :));
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+%displayData(X(sel, :));
 
 %% ================ Part 2: Loading Pameters ================
 % In this part of the exercise, we load some pre-initialized 
@@ -64,9 +61,7 @@ pred = predict(Theta1, Theta2, X);
 
 fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == y)) * 100);
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
-
+return;
 %  To give you an idea of the network's output, you can also run
 %  through the examples one at the a time to see what it is predicting.
 
