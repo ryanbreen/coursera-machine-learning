@@ -68,18 +68,11 @@ fprintf(' %f \n', grad);
 fprintf('Expected gradients:\n');
 fprintf(' 0.146561\n -0.548558\n 0.724722\n 1.398003\n');
 
-return;
-fprintf('Program paused. Press enter to continue.\n');
-pause;
 %% ============ Part 2b: One-vs-All Training ============
 fprintf('\nTraining One-vs-All Logistic Regression...\n')
 
 lambda = 0.1;
 [all_theta] = oneVsAll(X, y, num_labels, lambda);
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
-
 
 %% ================ Part 3: Predict for One-Vs-All ================
 
