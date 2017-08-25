@@ -62,27 +62,33 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+function [a1 a2 a3] = feedForward(X_m)
+    a1 = [1 X_m];
 
-X = [ones(m, 1) X];
+    a2 = sigmoid(a1 * (Theta1.'));
 
-a2 = sigmoid(X * (Theta1.'));
+    a2 = [1 a2];
 
-a2 = [ones(m, 1) a2];
-
-h_of_x = sigmoid(a2 * (Theta2.'));
-
-% create a m x num_labels version of y
-y_expanded = [zeros(m, num_labels)];
-
-for i = 1:m
-    if y(i) == 0
-        y_expanded(i, 10) = 1;
-    else
-        y_expanded(i, y(i)) = 1;
-    end
+    a3 = sigmoid(a2 * (Theta2.'));
 end
 
-deltas = -(y_expanded .* log(h_of_x)) - ((1 - y_expanded) .* (log(1 - h_of_x)));
+deltas = zeros(m, num_labels);
+
+for i = 1:m
+    
+    % create a m x num_labels version of y
+    y_expanded = zeros(1, num_labels);
+    if y(i) == 0
+        y_expanded(10) = 1;
+    else
+        y_expanded(y(i)) = 1;
+    end
+    
+    [a1 a2 a3] = feedForward(X(i, :));
+
+    deltas(i, :) = -(y_expanded .* log(a3)) - ((1 - y_expanded) .* (log(1 - a3)));
+end
+
 
 regularized_theta1 = Theta1(:, 2:end);
 regularized_theta1 = regularized_theta1 .* regularized_theta1;

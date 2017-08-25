@@ -110,8 +110,6 @@ fprintf('Sigmoid gradient evaluated at [-1 -0.5 0 0.5 1]:\n  ');
 fprintf('%f ', g);
 fprintf('\n\n');
 
-return;
-
 %% ================ Part 6: Initializing Pameters ================
 %  In this part of the exercise, you will be starting to implment a two
 %  layer neural network that classifies digits. You will start by
@@ -126,7 +124,7 @@ initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels);
 % Unroll parameters
 initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
 
-
+return;
 %% =============== Part 7: Implement Backpropagation ===============
 %  Once your cost matches up with ours, you should proceed to implement the
 %  backpropagation algorithm for the neural network. You should add to the
@@ -138,8 +136,7 @@ fprintf('\nChecking Backpropagation... \n');
 %  Check gradients by running checkNNGradients
 checkNNGradients;
 
-fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
+return;
 
 
 %% =============== Part 8: Implement Regularization ===============
