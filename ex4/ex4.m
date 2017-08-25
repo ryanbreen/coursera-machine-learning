@@ -96,8 +96,6 @@ J = nnCostFunction(nn_params, input_layer_size, hidden_layer_size, ...
 fprintf(['Cost at parameters (loaded from ex4weights): %f '...
          '\n(this value should be about 0.383770)\n'], J);
 
-return;
-
 
 %% ================ Part 5: Sigmoid Gradient  ================
 %  Before you start implementing the neural network, you will first
@@ -112,9 +110,7 @@ fprintf('Sigmoid gradient evaluated at [-1 -0.5 0 0.5 1]:\n  ');
 fprintf('%f ', g);
 fprintf('\n\n');
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
-
+return;
 
 %% ================ Part 6: Initializing Pameters ================
 %  In this part of the exercise, you will be starting to implment a two
