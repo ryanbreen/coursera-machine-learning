@@ -83,7 +83,15 @@ for i = 1:m
 end
 
 deltas = -(y_expanded .* log(h_of_x)) - ((1 - y_expanded) .* (log(1 - h_of_x)));
-J = (1/m) * sum(sum(deltas));
+
+regularized_theta1 = Theta1(:, 2:end);
+regularized_theta1 = regularized_theta1 .* regularized_theta1;
+
+regularized_theta2 = Theta2(:, 2:end);
+regularized_theta2 = regularized_theta2 .* regularized_theta2;
+regular_term = (lambda / (2 * m)) * (sum(regularized_theta1(:)) + sum(regularized_theta2(:)));
+
+J = (1/m) * sum(deltas(:)) + regular_term;
 
 % -------------------------------------------------------------
 
