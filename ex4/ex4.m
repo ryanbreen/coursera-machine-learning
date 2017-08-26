@@ -135,8 +135,6 @@ fprintf('\nChecking Backpropagation... \n');
 %  Check gradients by running checkNNGradients
 checkNNGradients;
 
-return;
-
 
 %% =============== Part 8: Implement Regularization ===============
 %  Once your backpropagation implementation is correct, you should now
@@ -148,6 +146,8 @@ fprintf('\nChecking Backpropagation (w/ Regularization) ... \n')
 %  Check gradients by running checkNNGradients
 lambda = 3;
 checkNNGradients(lambda);
+
+return;
 
 % Also output the costFunction debugging values
 debug_J  = nnCostFunction(nn_params, input_layer_size, ...

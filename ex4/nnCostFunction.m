@@ -111,8 +111,14 @@ regular_term = (lambda / (2 * m)) * (sum(regularized_theta1(:)) + sum(regularize
 
 J = (1/m) * sum(cost(:)) + regular_term;
 
-Theta1_grad = Theta1_grad .* (1/m);
-Theta2_grad = Theta2_grad .* (1/m);
+reg_theta1 = (lambda / m) * Theta1;
+reg_theta1(:, 1) = zeros(1, size(Theta1, 1));
+
+reg_theta2 = (lambda / m) * Theta2;
+reg_theta2(:, 1) = zeros(1, size(Theta2, 1));
+
+Theta1_grad = Theta1_grad .* (1/m) + reg_theta1;
+Theta2_grad = Theta2_grad .* (1/m) + reg_theta2;
 
 % -------------------------------------------------------------
 
