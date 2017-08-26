@@ -1,4 +1,4 @@
-function [J grad] = nnCostFunction(nn_params, ...
+function [J, grad] = nnCostFunction(nn_params, ...
                                    input_layer_size, ...
                                    hidden_layer_size, ...
                                    num_labels, ...
@@ -26,7 +26,6 @@ Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):en
 m = size(X, 1);
          
 % You need to return the following variables correctly 
-J = 0;
 Theta1_grad = zeros(size(Theta1));
 Theta2_grad = zeros(size(Theta2));
 
@@ -62,17 +61,22 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
-function [a1 a2 a3] = feedForward(X_m)
+function [a1, a2, a3] = feedForward(X_m)
     a1 = [1 X_m];
 
-    a2 = sigmoid(a1 * (Theta1.'));
+    a2 = sigmoid(a1 * Theta1');
 
     a2 = [1 a2];
 
-    a3 = sigmoid(a2 * (Theta2.'));
+    a3 = sigmoid(a2 * Theta2');
 end
 
-deltas = zeros(m, num_labels);
+function [delta2, delta3] = backProp(a2, a3, y_t)
+    delta3 = (a3 - y_t);
+    delta2 = (delta3 * Theta2) .* a2 .* (1-a2);
+end
+
+cost = zeros(m, num_labels);
 
 for i = 1:m
     
@@ -84,20 +88,31 @@ for i = 1:m
         y_expanded(y(i)) = 1;
     end
     
-    [a1 a2 a3] = feedForward(X(i, :));
-
-    deltas(i, :) = -(y_expanded .* log(a3)) - ((1 - y_expanded) .* (log(1 - a3)));
+    [a1, a2, a3] = feedForward(X(i, :));
+    cost(i, :) = -(y_expanded .* log(a3)) - ((1 - y_expanded) .* (log(1 - a3)));
+    
+    [delta2, delta3] = backProp(a2, a3, y_expanded);
+    
+    Delta1 = (delta2.'*a1);
+    Delta1 = Delta1(2:end, :);
+    Delta2 = (delta3.'*a2);
+    
+    Theta1_grad = Theta1_grad + Delta1;
+    Theta2_grad = Theta2_grad + Delta2;
 end
-
 
 regularized_theta1 = Theta1(:, 2:end);
 regularized_theta1 = regularized_theta1 .* regularized_theta1;
 
 regularized_theta2 = Theta2(:, 2:end);
 regularized_theta2 = regularized_theta2 .* regularized_theta2;
+
 regular_term = (lambda / (2 * m)) * (sum(regularized_theta1(:)) + sum(regularized_theta2(:)));
 
-J = (1/m) * sum(deltas(:)) + regular_term;
+J = (1/m) * sum(cost(:)) + regular_term;
+
+Theta1_grad = Theta1_grad .* (1/m);
+Theta2_grad = Theta2_grad .* (1/m);
 
 % -------------------------------------------------------------
 
