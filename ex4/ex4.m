@@ -147,17 +147,12 @@ fprintf('\nChecking Backpropagation (w/ Regularization) ... \n')
 lambda = 3;
 checkNNGradients(lambda);
 
-return;
-
 % Also output the costFunction debugging values
 debug_J  = nnCostFunction(nn_params, input_layer_size, ...
                           hidden_layer_size, num_labels, X, y, lambda);
 
 fprintf(['\n\nCost at (fixed) debugging parameters (w/ lambda = %f): %f ' ...
          '\n(for lambda = 3, this value should be about 0.576051)\n\n'], lambda, debug_J);
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
 
 
 %% =================== Part 8: Training NN ===================
@@ -193,9 +188,6 @@ Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...
 Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):end), ...
                  num_labels, (hidden_layer_size + 1));
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
-
 
 %% ================= Part 9: Visualize Weights =================
 %  You can now "visualize" what the neural network is learning by 
@@ -205,9 +197,6 @@ pause;
 fprintf('\nVisualizing Neural Network... \n')
 
 displayData(Theta1(:, 2:end));
-
-fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
 
 %% ================= Part 10: Implement Predict =================
 %  After training the neural network, we would like to use it to predict
