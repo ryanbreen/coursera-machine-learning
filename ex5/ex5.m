@@ -58,7 +58,6 @@ J = linearRegCostFunction([ones(m, 1) X], y, theta, 1);
 fprintf(['Cost at theta = [1 ; 1]: %f '...
          '\n(this value should be about 303.993192)\n'], J);
 
-     return;
 %% =========== Part 3: Regularized Linear Regression Gradient =============
 %  You should now implement the gradient for regularized linear 
 %  regression.
