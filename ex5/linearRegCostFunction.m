@@ -21,7 +21,7 @@ h_of_x = X * theta;
 delta = h_of_x - y;
 
 J = (1/(2*m)) * (sum(delta.^2) + (lambda * reg));
-grad = (1/m) .* sum((h_of_x - y) .* X) + (lambda / m) .* theta.';
+grad = (1/m) .* sum((h_of_x - y) .* X, 1) + (lambda / m) .* theta.';
 grad(1) = (1/m) * sum((h_of_x(:, 1) - y(:, 1)) .* X(:, 1));
 
 % =========================================================================
