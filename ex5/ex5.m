@@ -179,8 +179,6 @@ for i = 1:m
     fprintf('  \t%d\t\t%f\t%f\n', i, error_train(i), error_val(i));
 end
 
-return;
-
 %% =========== Part 8: Validation for Selecting Lambda =============
 %  You will now implement validationCurve to test various values of 
 %  lambda on a validation set. You will then use this to select the
@@ -201,6 +199,3 @@ for i = 1:length(lambda_vec)
 	fprintf(' %f\t%f\t%f\n', ...
             lambda_vec(i), error_train(i), error_val(i));
 end
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
