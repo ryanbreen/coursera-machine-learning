@@ -199,3 +199,8 @@ for i = 1:length(lambda_vec)
 	fprintf(' %f\t%f\t%f\n', ...
             lambda_vec(i), error_train(i), error_val(i));
 end
+
+% lambda 3 looks like the best match
+lambda = 3;
+theta = trainLinearReg(X_poly, y, lambda);
+fprintf('At lambda 3, test error is %f\n', linearRegCostFunction(X_poly_test, ytest, theta, 0));
