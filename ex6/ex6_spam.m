@@ -37,8 +37,6 @@ fprintf('Word Indices: \n');
 fprintf(' %d', word_indices);
 fprintf('\n\n');
 
-return;
-
 %% ==================== Part 2: Feature Extraction ====================
 %  Now, you will convert each email into a vector of features in R^n. 
 %  You should complete the code in emailFeatures.m to produce a feature
@@ -54,9 +52,6 @@ features      = emailFeatures(word_indices);
 % Print Stats
 fprintf('Length of feature vector: %d\n', length(features));
 fprintf('Number of non-zero entries: %d\n', sum(features > 0));
-
-
-return;
 
 %% =========== Part 3: Train Linear SVM for Spam Classification ========
 %  In this section, you will train a linear classifier to determine if an
