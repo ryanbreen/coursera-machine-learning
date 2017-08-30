@@ -54,6 +54,18 @@ fprintf('\n==== Processed Email ====\n\n');
 % Process file
 l = 0;
 
+function find_str(str)
+	% do a horrendous search rather than an O(1) hash lookup
+    for i = 1:length(vocabList)
+        if strcmp(vocabList(i), str)
+           word_indices = [word_indices ; i];
+           return;
+        end
+    end
+end
+
+
+
 while ~isempty(email_contents)
 
     % Tokenize and also get rid of any punctuation
@@ -98,12 +110,7 @@ while ~isempty(email_contents)
     %
 
 
-
-
-
-
-
-
+    find_str(str);
 
 
     % =============================================================
