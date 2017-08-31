@@ -59,9 +59,6 @@ fprintf('   [ 2.428301 3.157924 ]\n');
 fprintf('   [ 5.813503 2.633656 ]\n');
 fprintf('   [ 7.119387 3.616684 ]\n\n');
 
-return;
-
-
 %% =================== Part 3: K-Means Clustering ======================
 %  After you have completed the two functions computeCentroids and
 %  findClosestCentroids, you have all the necessary pieces to run the
@@ -88,8 +85,6 @@ initial_centroids = [3 3; 6 2; 8 5];
 [centroids, idx] = runkMeans(X, initial_centroids, max_iters, true);
 fprintf('\nK-Means Done.\n\n');
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
 
 %% ============= Part 4: K-Means Clustering on Pixels ===============
 %  In this exercise, you will use K-Means to compress an image. To do this,
@@ -130,9 +125,6 @@ initial_centroids = kMeansInitCentroids(X, K);
 % Run K-Means
 [centroids, idx] = runkMeans(X, initial_centroids, max_iters);
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
-
 
 %% ================= Part 5: Image Compression ======================
 %  In this part of the exercise, you will use the clusters of K-Means to
@@ -163,8 +155,4 @@ title('Original');
 subplot(1, 2, 2);
 imagesc(X_recovered)
 title(sprintf('Compressed, with %d colors.', K));
-
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
 

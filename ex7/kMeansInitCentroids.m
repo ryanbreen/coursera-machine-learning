@@ -13,7 +13,7 @@ function centroids = kMeansInitCentroids(X, K)
 %               the dataset X
 %
 
-centroids = randsample(X, K);
+centroids = X(randsample(size(X, 1), K));
 
 
 % =============================================================
