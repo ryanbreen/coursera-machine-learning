@@ -39,9 +39,6 @@ axis([0 30 0 30]);
 xlabel('Latency (ms)');
 ylabel('Throughput (mb/s)');
 
-fprintf('Program paused. Press enter to continue.\n');
-pause
-
 
 %% ================== Part 2: Estimate the dataset statistics ===================
 %  For this exercise, we assume a Gaussian distribution for the dataset.
@@ -65,8 +62,7 @@ visualizeFit(X,  mu, sigma2);
 xlabel('Latency (ms)');
 ylabel('Throughput (mb/s)');
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+return;
 
 %% ================== Part 3: Find Outliers ===================
 %  Now you will find a good epsilon threshold using a cross-validation set
