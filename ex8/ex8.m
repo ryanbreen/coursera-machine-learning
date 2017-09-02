@@ -62,8 +62,6 @@ visualizeFit(X,  mu, sigma2);
 xlabel('Latency (ms)');
 ylabel('Throughput (mb/s)');
 
-return;
-
 %% ================== Part 3: Find Outliers ===================
 %  Now you will find a good epsilon threshold using a cross-validation set
 %  probabilities given the estimated Gaussian distribution
@@ -85,8 +83,8 @@ hold on
 plot(X(outliers, 1), X(outliers, 2), 'ro', 'LineWidth', 2, 'MarkerSize', 10);
 hold off
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+
+return;
 
 %% ================== Part 4: Multidimensional Outliers ===================
 %  We will now use the code from the previous part and apply it to a 
