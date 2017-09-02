@@ -84,8 +84,6 @@ plot(X(outliers, 1), X(outliers, 2), 'ro', 'LineWidth', 2, 'MarkerSize', 10);
 hold off
 
 
-return;
-
 %% ================== Part 4: Multidimensional Outliers ===================
 %  We will now use the code from the previous part and apply it to a 
 %  harder problem in which more features describe each datapoint and only 
