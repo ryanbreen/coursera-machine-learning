@@ -74,9 +74,6 @@ fprintf('\nChecking Gradients (without regularization) ... \n');
 checkCostFunction;
 
 
-return;
-
-
 %% ========= Part 4: Collaborative Filtering Cost Regularization ========
 %  Now, you should implement regularization for the cost function for 
 %  collaborative filtering. You can implement it by adding the cost of
@@ -90,9 +87,7 @@ J = cofiCostFunc([X(:) ; Theta(:)], Y, R, num_users, num_movies, ...
 fprintf(['Cost at loaded parameters (lambda = 1.5): %f '...
          '\n(this value should be about 31.34)\n'], J);
 
-fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
-
+return;
 
 %% ======= Part 5: Collaborative Filtering Gradient Regularization ======
 %  Once your cost matches up with ours, you should proceed to implement 
