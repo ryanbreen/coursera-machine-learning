@@ -63,9 +63,6 @@ J = cofiCostFunc([X(:) ; Theta(:)], Y, R, num_users, num_movies, ...
 fprintf(['Cost at loaded parameters: %f '...
          '\n(this value should be about 22.22)\n'], J);
 
-return;
-
-
 %% ============== Part 3: Collaborative Filtering Gradient ==============
 %  Once your cost function matches up with ours, you should now implement 
 %  the collaborative filtering gradient function. Specifically, you should 
@@ -76,8 +73,8 @@ fprintf('\nChecking Gradients (without regularization) ... \n');
 %  Check gradients by running checkNNGradients
 checkCostFunction;
 
-fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
+
+return;
 
 
 %% ========= Part 4: Collaborative Filtering Cost Regularization ========
